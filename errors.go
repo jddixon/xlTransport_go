@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/transport/errors.go
+// xlTransport_go/errors.go
 
 import (
 	"errors"

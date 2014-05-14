@@ -1,11 +1,11 @@
 package transport
 
-// xlattice_go/transport/mock_connection_test.go
+// xlTransport_go/mock_connection_test.go
 
 import (
 	"bytes"
 	"fmt"
-	xr "github.com/jddixon/xlattice_go/rnglib"
+	xr "github.com/jddixon/rnglib_go"
 	. "gopkg.in/check.v1"
 )
 

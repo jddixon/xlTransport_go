@@ -1,12 +1,12 @@
 package transport
 
-// xlattice_go/transport/server_test.go
+// xlTransport_go/server_test.go
 
 import (
 	"crypto/sha1"
 	"encoding/hex"
 	"fmt"
-	"github.com/jddixon/xlattice_go/rnglib"
+	xr "github.com/jddixon/rnglib_go"
 	. "gopkg.in/check.v1"
 	"time"
 )
@@ -28,7 +28,7 @@ const (
 	SHA1_LEN = 20
 )
 
-var rng = rnglib.MakeSimpleRNG()
+var rng = xr.MakeSimpleRNG()
 
 func (s *XLSuite) handleMsg(cnx ConnectionI) error {
 	myCnx := cnx.(*TcpConnection)

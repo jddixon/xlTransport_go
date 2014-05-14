@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/transport/mock_connector.go
+// xlTransport_go/mock_connector.go
 
 import ()
 

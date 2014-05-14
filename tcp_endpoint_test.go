@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/transport/tcp_endpoint_test.go
+// xlTransport_go/tcp_endpoint_test.go
 
 import (
 	. "gopkg.in/check.v1"

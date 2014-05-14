@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/transport/tcp_connector_test.go
+// xlTransport_go/tcp_connector_test.go
 
 import (
 	"fmt"

@@ -2,7 +2,7 @@ package transport
 
 import (
 	"fmt"
-	xc "github.com/jddixon/xlattice_go/crypto"
+	xc "github.com/jddixon/xlCrypto_go"
 	"net"
 )
 

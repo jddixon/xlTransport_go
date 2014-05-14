@@ -1,6 +1,6 @@
 package transport
 
-import xc "github.com/jddixon/xlattice_go/crypto"
+import xc "github.com/jddixon/xlCrypto_go"
 
 //
 // A Connection is a relationship between two EndPoints.  In XLattice,

@@ -1,10 +1,10 @@
 package transport
 
-// xlattice_go/transport/tcp_connector_test.go
+// xlTransport_go/tcp_connector_test.go
 
 import (
 	"fmt"
-	"github.com/jddixon/xlattice_go/rnglib"
+	xr "github.com/jddixon/rnglib_go"
 	. "gopkg.in/check.v1"
 )
 
@@ -23,7 +23,7 @@ func (s *XLSuite) TestCtorInterface(c *C) {
 }
 
 func (s *XLSuite) TestSerialization(c *C) {
-	rng := rnglib.MakeSimpleRNG()
+	rng := xr.MakeSimpleRNG()
 
 	a := rng.Intn(256)
 	b := rng.Intn(256)

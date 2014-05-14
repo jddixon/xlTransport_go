@@ -3,7 +3,7 @@ package transport
 import (
 	"bytes"
 	"fmt"
-	xc "github.com/jddixon/xlattice_go/crypto"
+	xc "github.com/jddixon/xlCrypto_go"
 	"sync"
 )
 

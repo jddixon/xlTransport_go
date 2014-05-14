@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/transport/endpoint.go
+// xlTransport_go/endpoint.go
 
 import (
 	"strings"

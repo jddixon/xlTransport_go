@@ -1,4 +1,4 @@
-xlattice_go/transport/TODO
+xlTransport_go/TODO
 
 2013-11-11
     * implement MockConnection to simplify testing elsewhere

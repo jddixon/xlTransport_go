@@ -1,10 +1,10 @@
 package transport
 
-// xlattice_go/transport/v4_address_test.go
+// xlTransport_go/v4_address_test.go
 
 import (
 	"fmt"
-	"github.com/jddixon/xlattice_go/rnglib"
+	xr "github.com/jddixon/rnglib_go"
 	. "gopkg.in/check.v1"
 	"regexp"
 )
@@ -27,7 +27,7 @@ func (s *XLSuite) TestV4AddressInterface(c *C) {
 }
 func (s *XLSuite) TestGoodV4Addrs(c *C) {
 	// fmt.Println("TEST_GOOD_V4_ADDRS")
-	rng := rnglib.MakeSimpleRNG()
+	rng := xr.MakeSimpleRNG()
 	for i := 0; i < 16; i++ {
 		_a := rng.Intn(256)
 		_b := rng.Intn(256)
@@ -67,7 +67,7 @@ func (s *XLSuite) TestQuad(c *C) {
 }
 func (s *XLSuite) TestDottedQuad(c *C) {
 	// fmt.Println("TEST_DOTTED_QUAD")
-	rng := rnglib.MakeSimpleRNG()
+	rng := xr.MakeSimpleRNG()
 	// Use of MustCompile makes no difference.
 	v4AddrRE, err := regexp.Compile(V4_ADDR_PAT)
 	c.Assert(err, Equals, nil)

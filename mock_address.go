@@ -1,6 +1,6 @@
 package transport
 
-// xlattice_go/mock_address.go
+// xlTransport_go/mock_address.go
 
 type MockAddress struct {
 	Address string
