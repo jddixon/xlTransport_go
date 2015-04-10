@@ -1,5 +1,9 @@
 xlTransport_go/CHANGES
 
+v0.5.1
+    2015-04-09
+        * elaborated v4_address_test.go to test 0.0.0.0             SLOC 1090
+        * corrected handling of [::] and eg :80                     SLOC 1157
 v0.5.0
     2014-05-14
         * split off from xlattice_go/transport                      SLOC 1077

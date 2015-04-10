@@ -1,5 +1,11 @@
 xlTransport_go/TODO
 
+2015-04-09
+    * need to verify that 0.0.0.0 (= listen on all interfaces) is       * DONE
+        an acceptable address to v4_address.go (line 100)               * DONE
+    * NewV4Address must accept [::] as a synonym for 0.0.0.0
+    * NewV4Address must accept eg :80 as a synonym for 127.0.0.1:80
+    :
 2013-11-11
     * implement MockConnection to simplify testing elsewhere
 

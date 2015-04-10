@@ -10,6 +10,7 @@ import (
 var (
 	AlreadyBound       = errors.New("cnx has already been bound")
 	AlreadyConnected   = errors.New("cnx has already been connected")
+	EmptyAddrString    = errors.New("address string is empty")
 	NotAConnector      = errors.New("Not a connector")
 	NotAKnownConnector = errors.New("Not a known connector type")
 	NotAKnownEndPoint  = errors.New("Not a known endPoint type")

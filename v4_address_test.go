@@ -25,6 +25,40 @@ func (s *XLSuite) TestV4AddressInterface(c *C) {
 	foo := AddressI(w)
 	_ = foo
 }
+// Verify that 0.0.0.0 is acceptable as an address (meaning "listen
+// on all interfaces")
+//
+func (s *XLSuite) TestAllInterfaces(c *C) {
+	rng := xr.MakeSimpleRNG()
+	var str string
+
+	// test with port = 0 (meaning the system decides)
+	str = "0.0.0.0:0"
+	a, err := NewV4Address(str)
+	c.Assert(err, IsNil)
+	c.Assert(a.String(), Equals, str)
+
+	// test with random port
+	port := rng.Intn(256 * 256)
+	str = fmt.Sprintf("0.0.0.0:%d", port)
+	a, err = NewV4Address(str)
+	c.Assert(err, IsNil)
+	c.Assert(a.String(), Equals, str)
+
+	// ABBREVIATED as [::]; test with port = 0 
+	str = "[::]:0"
+	a, err = NewV4Address(str)
+	c.Assert(err, IsNil)
+	c.Assert(a.String(), Equals, "0.0.0.0:0")
+
+	// test with random port
+	port = rng.Intn(256 * 256)
+	str = fmt.Sprintf("0.0.0.0:%d", port)
+	a, err = NewV4Address(str)
+	c.Assert(err, IsNil)
+	c.Assert(a.String(), Equals, str)
+}
+
 func (s *XLSuite) TestGoodV4Addrs(c *C) {
 	// fmt.Println("TEST_GOOD_V4_ADDRS")
 	rng := xr.MakeSimpleRNG()

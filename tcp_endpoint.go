@@ -3,6 +3,7 @@ package transport
 import (
 	"fmt"
 	"net"
+	"strings"
 )
 
 var _ = fmt.Print // DEBUG
@@ -47,7 +48,6 @@ func (e *TcpEndPoint) Clone() (ep EndPointI, err error) {
 
 func (e *TcpEndPoint) Equal(any interface{}) bool {
 	if any == nil {
-		fmt.Println("Equal: nil other") // DEBUG
 		return false
 	}
 	if any == e {
@@ -57,18 +57,26 @@ func (e *TcpEndPoint) Equal(any interface{}) bool {
 	case *TcpEndPoint:
 		_ = v
 	default:
-		fmt.Println("Equal: other not *TcpEndPoint") // DEBUG
 		return false
 	}
 	other := any.(*TcpEndPoint)
 	t, ot := e.tcpAddr, other.tcpAddr
-	if len(t.IP) != len(ot.IP) {
-		fmt.Println("Equal: other has different len(IP)") // DEBUG
-		return false
-	}
-	for i := 0; i < len(t.IP); i++ {
-		if t.IP[i] != ot.IP[i] {
-			fmt.Println("Equal: other has different IP[i]") // DEBUG
+
+	ts := t.String()
+	ots := ot.String()
+
+	if ts != ots {
+		if strings.HasPrefix(ts, "[::]") {
+			ts = "0.0.0.0" + ts[4:]
+		} else if ts[0] == ':' {
+			ts = "127.0.0.1" + ts
+		}
+		if strings.HasPrefix(ots, "[::]") {
+			ots = "0.0.0.0" + ots[4:]
+		} else if ots[0] == ':' {
+			ots = "127.0.0.1" + ots
+		}
+		if ts != ots {
 			return false
 		}
 	}
