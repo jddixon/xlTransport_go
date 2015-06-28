@@ -1,5 +1,8 @@
 xlTransport_go/CHANGES
 
+v0.5.2
+    2015-06-28
+        * update .gitignore                                         SLOC 1157
 v0.5.1
     2015-04-09
         * elaborated v4_address_test.go to test 0.0.0.0             SLOC 1090
