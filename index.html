@@ -11,7 +11,102 @@
 <div class="content">
 <h1 class="libTop">xlTransport_go</h1>
 
-<p>Transport library for xlattice_go.</p>
+<p>Transport library for
+<a href="https://jddixon.github.io/xlattice_go">xLattice_go.</a></p>
+
+<h2>Basic Abstractions</h2>
+
+<p>XLattice
+<a href="https://jddixon.github.io/xlNode_go">nodes</a>
+communicate by sending messages over connections.  The primitive
+notions common to all xLattice connections are</p>
+
+<ul>
+<li>**Acceptor **, an EndPoint on which a Node listens</li>
+<li><strong>Address</strong>, a sequence of bytes distinguishing EndPoints</li>
+<li><strong>Connection</strong>, a pair of EndPoints enabling communications between
+the Nodes at either end</li>
+<li><strong>Connector</strong>, an address and other information necessary to establish
+a connection to another Node</li>
+<li><strong>EndPoint</strong>, an address and a Transport</li>
+<li><strong>Transport</strong>, a name identifying a communications protocol</li>
+</ul>
+
+<h3>Acceptor</h3>
+
+<p>An Acceptor is an EndPoint on which a Node listens.  On receiving a
+connection from a far Node, the Acceptor will either reject it or begin
+the procedure necessary to establish a connection.  Usually this
+involves</p>
+
+<ul>
+<li>creating a data structure including at least the details of the
+initiating Node</li>
+<li>starting a separate thread (gorouotine) which will be responsible
+for handling the commuication, in particular the first message
+which the far Node sent to begin the session</li>
+</ul>
+
+<h3>Address</h3>
+
+<p>An Address is a sequence of bytes sufficient to distinguish a Node within
+a set of Addresses.  The Address may include a local part.  For example</p>
+
+<ul>
+<li>in <strong>IPv4</strong> the Address must include a 32-bit value identifying the host
+and may include a 16-bit port number associated with a thread or process
+on that host.  The 32-bit limit restricts the number of hosts to roughly
+4 billion</li>
+<li><strong>IPv6</strong> the main part of the Address is a 64-bit value instead, restricting
+the number of hosts to about 16 quintillion (<code>10^18</code>)</li>
+<li>a simple <strong>email</strong> address consists of a userID and a fully qualified domain
+name (so in <code>john.doe@example.com</code> the local part is <code>john.doe</code> and the
+domain name is <code>example.com</code>.</li>
+</ul>
+
+<p>In ipv4 and ipv6 it is necessary to distinguish the <strong>serialization</strong> of the
+Address from its binary form.  The main part of an ipv4 address, for example,
+is a 32-bit binary value in its wire form, but normally written as a
+<strong>dotted quad</strong>, <code>A.B.C.D</code>, in which each byte is represented by its decimal
+value, a number between <code>0</code> and <code>255</code> inclusive.</p>
+
+<h3>Connection</h3>
+
+<p>A Connection is a established relationship between two EndPoints
+supporting the passage of messages between the two.  From the point of
+view of a participating host, the Connection will have a near EndPoint
+and a far EndPoint.  Both EndPoints must use the same protocol.
+Usually the Connection will have an associated State, and the Connection
+will proceed through an ordered sequence of States when it is being
+established, or the Connection will be closed.</p>
+
+<h3>Connector</h3>
+
+<p>A Node will normally acquire a number of <strong>Peers</strong> as it is being set
+up and with each a <strong>Connector</strong>.  Essentially this is a recipe for
+establishing a Connection to the Peer; this recipe will normally
+include at least two of the Peer&rsquo;s RSA public keys, one of which (<strong>ck</strong>)
+is used for setting up an encrypted AES session with the Peer.</p>
+
+<h3>EndPoint</h3>
+
+<p>An EndPoint is identified by the associated Transport and an Address.<br />
+The Address may include an explicit local part or there may be a
+default local part included with the Transport.  Thus for example
+the default local part associated with <code>http</code> is <code>80</code> and the default
+associated with <code>https</code> is <code>443</code>.</p>
+
+<p>As another example, for email the transport is <code>smtp</code> and there is
+no default Address or local part.</p>
+
+<h3>Transport</h3>
+
+<p>In the current implementation of xLattice, the only information
+associated with a Transport is its name, a Unicode string.</p>
+
+<h2>Project Status</h2>
+
+<p>A minimal implementation with only TCP/IP and UDP transport supported.</p>
 
 <h2>Licensing</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The material on this github.io website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
