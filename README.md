@@ -94,4 +94,4 @@ A minimal implementation with only TCP/IP and UDP transport supported.
 ## On-line Documentation
 
 More information on the **xlTransport_go** project can be found
-[here](://jddixon.github.io/xlTransport_go)
+[here](https://jddixon.github.io/xlTransport_go)
