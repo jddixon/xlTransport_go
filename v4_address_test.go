@@ -25,6 +25,7 @@ func (s *XLSuite) TestV4AddressInterface(c *C) {
 	foo := AddressI(w)
 	_ = foo
 }
+
 // Verify that 0.0.0.0 is acceptable as an address (meaning "listen
 // on all interfaces")
 //
@@ -45,7 +46,7 @@ func (s *XLSuite) TestAllInterfaces(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(a.String(), Equals, str)
 
-	// ABBREVIATED as [::]; test with port = 0 
+	// ABBREVIATED as [::]; test with port = 0
 	str = "[::]:0"
 	a, err = NewV4Address(str)
 	c.Assert(err, IsNil)

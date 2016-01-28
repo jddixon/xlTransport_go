@@ -39,8 +39,8 @@ func (s *XLSuite) TestEndPointAnyInterface(c *C) {
 	c.Assert(err, Equals, nil)
 
 	addr := ep.Address()
-	c.Assert(addr.String(), Equals, "0.0.0.0:80")	
-	//c.Assert(addr.String(), Equals, "[::]:80")	
+	c.Assert(addr.String(), Equals, "0.0.0.0:80")
+	//c.Assert(addr.String(), Equals, "[::]:80")
 
 	x, err := ep.Clone()
 	c.Assert(err, Equals, nil)
@@ -48,7 +48,7 @@ func (s *XLSuite) TestEndPointAnyInterface(c *C) {
 
 	xAddr := x.Address()
 	c.Assert(xAddr.String(), Equals, addr.String())
-	
+
 	c.Assert(ep.Equal(x), Equals, true)
 
 	c.Assert(ep.Transport(), Equals, "tcp")
