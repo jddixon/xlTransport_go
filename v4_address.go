@@ -38,7 +38,7 @@ func checkPortPart(val string) (err error) {
 	if port, err = strconv.Atoi(val); err == nil {
 		if port >= 256*256 {
 			err = errors.New(bad_port_number + val)
-		} 
+		}
 	}
 	return
 }
@@ -46,7 +46,7 @@ func checkPortPart(val string) (err error) {
 // Expect an IPV4 address in the form A.B.C.D:P, where P is the
 // port number and the :P is optional.  The :P part must be present.:
 //
-// Accept ":8080" as a valid address, with an implicit "127.0.0.1" host part.  
+// Accept ":8080" as a valid address, with an implicit "127.0.0.1" host part.
 // Accept "[::]" is a valid host part, interpreted as 0.0.0.0
 
 func NewV4Address(val string) (addr *V4Address, err error) {
@@ -63,13 +63,13 @@ func NewV4Address(val string) (addr *V4Address, err error) {
 
 	} else if val[0] == ':' {
 		// accept an address in the form ":nnnn"
-		err = checkPortPart(val[1:]) 
+		err = checkPortPart(val[1:])
 		if err == nil {
 			addrPart = "127.0.0.1"
 			portPart = val[1:]
 		}
 	} else if strings.HasPrefix(val, "[::]:") {
-		err = checkPortPart(val[5:]) 
+		err = checkPortPart(val[5:])
 		if err == nil {
 			addrPart = "0.0.0.0"
 			portPart = val[5:]
@@ -89,10 +89,10 @@ func NewV4Address(val string) (addr *V4Address, err error) {
 		} else {
 			// we have a colon
 			portPart = parts[1]
-			err = checkPortPart(portPart) 
+			err = checkPortPart(portPart)
 			if err == nil {
 				addrPart = parts[0]
-				if ! v4AddrRE.MatchString(addrPart) {
+				if !v4AddrRE.MatchString(addrPart) {
 					err = errors.New(bad_ipv4_addr + val)
 				}
 			}
