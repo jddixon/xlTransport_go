@@ -1,5 +1,8 @@
 xlTransport_go/CHANGES
 
+v0.5.8
+    2016-06-07
+        * add .dvcz, bkp2U, other bash scripts                      SLOC 1266
 v0.5.7
     2016-02-28
         * update LICENSE                                            SLOC 1162
@@ -25,6 +28,7 @@ v0.5.1
 v0.5.0
     2014-05-14
         * split off from xlattice_go/transport                      SLOC 1077
+
 
 
 
