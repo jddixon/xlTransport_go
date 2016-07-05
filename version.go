@@ -1,6 +1,6 @@
 package transport
 
 const (
-	VERSION      = "0.5.8"
-	VERSION_DATE = "2016-06-07"
+	VERSION      = "0.5.9"
+	VERSION_DATE = "2016-07-05"
 )
