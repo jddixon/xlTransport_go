@@ -7,20 +7,21 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-xlTransport_go v0.5.9
-2016-07-05 20:51:14
-# START CONTENT #
+xlTransport_go v0.5.10
+2016-09-19 19:53:30
+# BEGIN CONTENT #
 xlTransport_go
- .copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
  .dvcz
-  builds 77d47044eaaf496fa8b040e01f072b78d09429cd
-  lastBuildList d8381e50cd5bc3be724431b17625118be99e931a
-  projCfg 86d1e57ee932f6ebe0ed5adff5efcba39f66720c
-  projCfg.local 8f9dd45a8a3b77da1e074e0099c1156415c126e7
-  version f2da4585436d66b29720c6dd320f103d04549dd5
+  builds e4df05f9f901d2c8a4a7d53f205a71dbfcf79251
+  copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
+  lastBuildList fdd2be4234a4e155f6dfbe84ecbcc83355be9480
+  license 5977a55c75bb4612004451a56b0b4c22d9d3311d
+  projCfg 767baa4e20dda7f6302c05cb4c99f18f3bbaa3a2
+  projCfg.local e76fc75196567d6a5e9d9f1f86f368eea1a9d8b8
+  version b101f570fa1779006625e30f3d06e79bf467a641
  .gitignore ec0f9002629753cd248c6a672ef3de695c30f4b7
- CHANGES 55190d841ee2524894c71170c1c8866f507c9886
- LICENSE.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
+ CHANGES af6451a01dc802e89d50bae03b1bb1f6094a4daf
+ LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  README.md 42536ae335a48a0d0b5c2eb11c19629c148a97a7
  TODO 36956c938f9556945a70832d2277ab909af4f616
  acceptorI.go 63ce4d276c1be000064d8db30e31829c229978c1
@@ -29,7 +30,7 @@ xlTransport_go
  connectionI.go fd6b1976db39e514f61b384f3ac82e62bab26667
  connector.go 30d5d1522473ad0409fe73bf4af3c3f5028024fe
  connectorI.go 7c48f83d18ecce783d169724d7559a36b9fdadba
- countem f97dff4a718994fe6bd6ed4ae0323702e2bb99f5
+ countem 1b98dd4dc8d4e979b8b4af8698863df64dfd18e3
  endpoint.go 9c94df71ecaa0642f68bd39cc78eae44e4d77b2d
  endpointI.go 461648dae98d7d4db482bff1d6f36517786a1635
  errors.go c88a5b6ba0bd0a674ca92f7238351495cfa592f6
@@ -69,7 +70,7 @@ xlTransport_go
  udp_endpoint.go 65b931104c8b9c5549fc509d5ad533a29a1b2d85
  v4_address.go 42a1578c291b8f84a5246fa42529b78be2cabb14
  v4_address_test.go 4af60d5d8dabc34666b641521285b166660b335f
- version.go 7c8b1ada52ff70f0da8312dd6da0febd0ac8df8b
+ version.go 8329c49f438defc8407afabf668f754df3102a11
 # END CONTENT #
 
-e6YzOc6WsDuYQDt38BLmOlsQ1dS/4Pa2ktha0cEUflQvooQkKYHiGCp+3SiXtDMWIJczsYfmIjrySQm81J/0+PelXe11F3bmCl5QMW1tAn6x7GLvs0EBU9wF6EI389oycy4KvccmuGuq+PI9V5y1ve9dtEC6G6KlM7oKhB3a3mWLUP1ZZE0wcyPBaYj876qXwBNz84vLge1GinxINSp/4jjeXCj2SIMqtIuRBrdSrAknpSYfFSLeoBo0iPqMsA//Ill/WbXGImcv0Dn/Wyu9H7y7PeTK3/I0vW18cDa88+2ihzPGLmwn2tmL2eRK/FEIT+FzohC5v0hRsLAT9Rdd+Q==
+TxDtl6+O+wmQSCNnZMY3HiwNjd+eFpYk7zsH8Sm6HqknuZzcp9wzUkZFZcnC80OUO7iM2VE0e5YG6oCBXo04Cu5JoBi+/UfXr7zYybCIZHboGkzILF4gWDxZhqdNTFmb1shv9ng4nBjCyVaX6gJrJQAhK+Wut829q1+SqGhyIxP/36Bx1HCSZT8PIKdZtqQi05g3kbNexQvLQNvIRWViQvx2MZb0bbwVzLS/yMec2dPBzxo2OOA0Qh7ynPpm7IhSGcOPgFq3NT2fbE2X3zIw64YepX/lxPLdHy6dXlZS4BUEJcuIQpeIIIwF+pjuinji/BrsgTjqLJPXPB3pP2rRUw==
