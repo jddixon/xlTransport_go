@@ -19,12 +19,45 @@ import (
 // correct.
 
 const (
+	// 2017-01-25: MAX_LEN 8192
+	//             K=8,N=128 succeeds 0.279s
+	//             K=8,N=256 hangs
+	//             K=8,N=129 hangs
+	//             K=4,N=256 succeeds 0.305s
+	//             K=4,N=512 hangs
+	//             K=4,N=257 succeeds 0.290s
+	//             K=4,N=260 succeeds 0.281s
+	//             K=4,N=270 succeeds 0.304s
+	//             K=4,N=280 succeeds, repeatable; 0.38, 0.322, 0.306s, etc
+	//             K=4,N=282 hangs sometimes; succeeded at 0.327s, 0.340s
+	//             K=4,N=285 hangs reliably
+	//             K=4,N=290 hangs reliably
+
+	//             K=16,N=64 succeeds
+	//			   K=16,N=65 hangs unreliably (say 4/5 times)	
+	//			   K=16,N=66 hangs unreliably
+	//			   K=16,N=70 hangs fairly reliably (9/10 times)
+
+	//             MAX_LEN 2048
+	//             K=16,N=64 succeeds
+	//             K=32,N=32 succeeds
+	//             K=33,N=32 hangs
+	//             K=64,N=16 hangs
+
+	//			   MAX_LEN 65536
+	//			   K=16,N=64 succeeds reliably (10/10), about 1.100s
+	//             K=64,N=16 hangs unreliably (3/10), gets bad hash (7/10)
+	//			   K=16,N=64 hangs unreliably (1/10), gets bad hash (9/10)
+
 	// XXX 2013-07-20 test hangs if K=16,N=32 and K increasd to 32 OR
 	// N increased from 32 to 64
-	K        = 32   // number of clients
-	N        = 16   // number of messages for each client
-	MIN_LEN  = 1024 // minimum length of message
-	MAX_LEN  = 2048 // maximum
+	// 2016-11-14 test succeeds K=16,N=32; K=32,N=32; K=16,N=64; K=32,N=64
+	//     ** K=64,N=128 HANGS ** but K=64,N=64 succeeds
+	//     ** K=128,N=64 HANGS **
+	K        = 16    // number of clients
+	N        = 64    // number of messages for each client
+	MIN_LEN  = 1024  // minimum length of message
+	MAX_LEN  = 8192  // maximum
 	SHA1_LEN = 20
 )
 
@@ -59,6 +92,9 @@ func (s *XLSuite) handleMsg(cnx ConnectionI) error {
 func (s *XLSuite) TestHashingServer(c *C) {
 	SERVER_ADDR := "127.0.0.1:0"
 
+	fmt.Println("TEST_HASHING_SERVER")
+	fmt.Printf ("    K %d, N %d, MAX_LEN %d\n", K, N, MAX_LEN)
+
 	// -- setup  -----------------------------------------------------
 	// fmt.Println("building messages")
 	var messages [][][]byte = make([][][]byte, K)
@@ -81,7 +117,7 @@ func (s *XLSuite) TestHashingServer(c *C) {
 	c.Assert(err, Equals, nil)
 	defer acc.Close()
 	accEndPoint := acc.GetEndPoint()
-	// fmt.Printf("server_test acceptor listening on %s\n", accEndPoint.String())
+	//fmt.Printf("server_test acceptor listening on %s\n", accEndPoint.String())
 	go func() {
 		for {
 			cnx, err := acc.Accept()
