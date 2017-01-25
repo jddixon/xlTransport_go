@@ -1,5 +1,8 @@
 xlTransport_go/CHANGES
 
+v0.5.11
+    2017-01-25
+        * collect stats on tests, document                          SLOC 1614
 v0.5.10
     2016-09-19
         * standardize licensing                                     SLOC 1809
@@ -34,6 +37,7 @@ v0.5.1
 v0.5.0
     2014-05-14
         * split off from xlattice_go/transport                      SLOC 1077
+
 
 
 

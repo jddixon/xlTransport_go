@@ -1,6 +1,7 @@
 package transport
 
 import (
+	"fmt"
 	"net"
 )
 
@@ -47,12 +48,21 @@ func (c *TcpConnector) Connect(nearEnd EndPointI) (ConnectionI, error) {
 		// XXX CHECK TYPE
 		tcpNearEnd = nearEnd.(*TcpEndPoint)
 	}
-	tcpConn, err := net.DialTCP("tcp", tcpNearEnd.GetTcpAddr(),
-		c.farEnd.GetTcpAddr())
+	var err error
+	var tcpConn *net.TCPConn
+	if nearEnd == nil {
+		tcpConn, err = net.DialTCP("tcp", nil, c.farEnd.GetTcpAddr())
+	} else {
+		tcpConn, err = net.DialTCP("tcp", tcpNearEnd.GetTcpAddr(),
+			c.farEnd.GetTcpAddr())
+	}
 	if err == nil {
 		cnx := TcpConnection{tcpConn, CNX_CONNECTED}
 		return &cnx, nil
 	} else {
+		// DEBUG -- NEVER SEEN
+		fmt.Sprintf("Error in TcpConnector.Connect: %s", err.Error())
+		// END
 		return nil, err
 	}
 }
