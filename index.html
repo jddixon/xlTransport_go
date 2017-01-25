@@ -9,12 +9,14 @@
 </head>
 <body>
 <div class="content">
-<h1 class="libTop">xlTransport_go</h1>
+<h1>
+<a id="user-content-xltransport_go" class="anchor" href="#xltransport_go" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>xlTransport_go</h1>
 
 <p>Transport library for
 <a href="https://jddixon.github.io/xlattice_go">xLattice_go.</a></p>
 
-<h2>Basic Abstractions</h2>
+<h2>
+<a id="user-content-basic-abstractions" class="anchor" href="#basic-abstractions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Abstractions</h2>
 
 <p>XLattice
 <a href="https://jddixon.github.io/xlNode_go">nodes</a>
@@ -22,17 +24,23 @@ communicate by sending messages over connections.  The primitive
 notions common to all xLattice connections are</p>
 
 <ul>
-<li>**Acceptor **, an EndPoint on which a Node listens</li>
-<li><strong>Address</strong>, a sequence of bytes distinguishing EndPoints</li>
-<li><strong>Connection</strong>, a pair of EndPoints enabling communications between
+<li>*<em>Acceptor *</em>, an EndPoint on which a Node listens</li>
+<li>
+<strong>Address</strong>, a sequence of bytes distinguishing EndPoints</li>
+<li>
+<strong>Connection</strong>, a pair of EndPoints enabling communications between
 the Nodes at either end</li>
-<li><strong>Connector</strong>, an address and other information necessary to establish
+<li>
+<strong>Connector</strong>, an address and other information necessary to establish
 a connection to another Node</li>
-<li><strong>EndPoint</strong>, an address and a Transport</li>
-<li><strong>Transport</strong>, a name identifying a communications protocol</li>
+<li>
+<strong>EndPoint</strong>, an address and a Transport</li>
+<li>
+<strong>Transport</strong>, a name identifying a communications protocol</li>
 </ul>
 
-<h3>Acceptor</h3>
+<h3>
+<a id="user-content-acceptor" class="anchor" href="#acceptor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acceptor</h3>
 
 <p>An Acceptor is an EndPoint on which a Node listens.  On receiving a
 connection from a far Node, the Acceptor will either reject it or begin
@@ -47,7 +55,8 @@ for handling the commuication, in particular the first message
 which the far Node sent to begin the session</li>
 </ul>
 
-<h3>Address</h3>
+<h3>
+<a id="user-content-address" class="anchor" href="#address" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Address</h3>
 
 <p>An Address is a sequence of bytes sufficient to distinguish a Node within
 a set of Addresses.  The Address may include a local part.  For example</p>
@@ -57,7 +66,8 @@ a set of Addresses.  The Address may include a local part.  For example</p>
 and may include a 16-bit port number associated with a thread or process
 on that host.  The 32-bit limit restricts the number of hosts to roughly
 4 billion</li>
-<li><strong>IPv6</strong> the main part of the Address is a 64-bit value instead, restricting
+<li>
+<strong>IPv6</strong> the main part of the Address is a 64-bit value instead, restricting
 the number of hosts to about 16 quintillion (<code>10^18</code>)</li>
 <li>a simple <strong>email</strong> address consists of a userID and a fully qualified domain
 name (so in <code>john.doe@example.com</code> the local part is <code>john.doe</code> and the
@@ -70,7 +80,8 @@ is a 32-bit binary value in its wire form, but normally written as a
 <strong>dotted quad</strong>, <code>A.B.C.D</code>, in which each byte is represented by its decimal
 value, a number between <code>0</code> and <code>255</code> inclusive.</p>
 
-<h3>Connection</h3>
+<h3>
+<a id="user-content-connection" class="anchor" href="#connection" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connection</h3>
 
 <p>A Connection is a established relationship between two EndPoints
 supporting the passage of messages between the two.  From the point of
@@ -80,15 +91,17 @@ Usually the Connection will have an associated State, and the Connection
 will proceed through an ordered sequence of States when it is being
 established, or the Connection will be closed.</p>
 
-<h3>Connector</h3>
+<h3>
+<a id="user-content-connector" class="anchor" href="#connector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connector</h3>
 
 <p>A Node will normally acquire a number of <strong>Peers</strong> as it is being set
 up and with each a <strong>Connector</strong>.  Essentially this is a recipe for
 establishing a Connection to the Peer; this recipe will normally
-include at least two of the Peer&rsquo;s RSA public keys, one of which (<strong>ck</strong>)
+include at least two of the Peer's RSA public keys, one of which (<strong>ck</strong>)
 is used for setting up an encrypted AES session with the Peer.</p>
 
-<h3>EndPoint</h3>
+<h3>
+<a id="user-content-endpoint" class="anchor" href="#endpoint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EndPoint</h3>
 
 <p>An EndPoint is identified by the associated Transport and an Address.
 The Address may include an explicit local part or there may be a
@@ -99,12 +112,14 @@ associated with <code>https</code> is <code>443</code>.</p>
 <p>As another example, for email the transport is <code>smtp</code> and there is
 no default Address or local part.</p>
 
-<h3>Transport</h3>
+<h3>
+<a id="user-content-transport" class="anchor" href="#transport" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Transport</h3>
 
 <p>In the current implementation of xLattice, the only information
 associated with a Transport is its name, a Unicode string.</p>
 
-<h2>Project Status</h2>
+<h2>
+<a id="user-content-project-status" class="anchor" href="#project-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Status</h2>
 
 <p>A minimal implementation with only TCP/IP and UDP transport supported.</p>
 
