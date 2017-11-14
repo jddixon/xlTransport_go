@@ -1,0 +1,21 @@
+[meta]
+version = "0.1.0"
+
+[project]
+name = "xlTransport_go"
+package = "xlTransport_go"
+main_lang = "go"
+version = "0.5.13"
+version_date = "2017-11-14"
+author = "Jim Dixon"
+author_email = "jddixon@gmail.com"
+copyright = "2014-2017"
+description = "golang XLattice transport library"
+dev_status = "pre-alpha"
+license = "mit"
+relpath = "go/src/github.com/jddixon/xlTransport_go"
+state = "shared"
+url = "https://jddixon.github.io/xlTransport_go"
+
+[go]
+cmds = []

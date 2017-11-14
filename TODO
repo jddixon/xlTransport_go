@@ -1,20 +1,27 @@
 xlTransport_go/TODO
 
+2017-01-25, edited from 2016-11-14
+    * URGENT: tcp_server_test.go HANGs if number of clients (K) and 
+        number of messages(N) exceed rather low limits: K=16, N=64
+        This is not reported as an error: the test simply hangs.
+        - The hang times out after 10 minutes.
+    * add a timeout on the test - say 5 seconds
+
 2015-04-09
-    * need to verify that 0.0.0.0 (= listen on all interfaces) is       * DONE
+    * Need to verify that 0.0.0.0 (= listen on all interfaces) is       * DONE
         an acceptable address to v4_address.go (line 100)               * DONE
     * NewV4Address must accept [::] as a synonym for 0.0.0.0
     * NewV4Address must accept eg :80 as a synonym for 127.0.0.1:80
-    :
+ 
 2013-11-11
-    * implement MockConnection to simplify testing elsewhere
+    * Implement MockConnection to simplify testing elsewhere
 
 2013-08-27
-    * the pseudo-constant ANY_TCP_END_POINT is a really bad		        * SKIP
+    * The pseudo-constant ANY_TCP_END_POINT is a really bad		        * SKIP
         idea; get rid of it		                                        * SKIP
         - allow TcpConnector.Connect() to take a nil arg		        * SKIP
             instead		                                                * SKIP
-    * see tests in msg/ : closing a connection does not change
+    * See tests in msg/ : closing a connection does not change
         its state to DISCONNECTED!
         - BUT this is at the other end of the connection, and
             transport/tcp_connection.GetState() does not 
