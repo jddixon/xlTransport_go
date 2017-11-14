@@ -17,7 +17,6 @@ xlTransport_go
   projCfg 767baa4e20dda7f6302c05cb4c99f18f3bbaa3a2
   projCfg.local e76fc75196567d6a5e9d9f1f86f368eea1a9d8b8
   projConfig.toml 260fa14fa8a5a8221b6b113bee6179f8218c2056
- .git
   FETCH_HEAD bf54c648d12d36d75b470afce8817a35de5b7a9a
   HEAD acbaef275e46a7f14c1ef456fff2c8bbe8c84724
   ORIG_HEAD c80d7861eac16a03e05711f9ef9892f814f0ac53
@@ -61,6 +60,7 @@ xlTransport_go
  .gitignore ec0f9002629753cd248c6a672ef3de695c30f4b7
  CHANGES 96e64ec15698b143d65119d9d8fda9e3edc72f3f
  LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
+ LICENSE.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  README.md 42536ae335a48a0d0b5c2eb11c19629c148a97a7
  TODO 25d5ebf48a1a7b8201d3347412325b61ef5e97f0
  acceptorI.go 63ce4d276c1be000064d8db30e31829c229978c1
